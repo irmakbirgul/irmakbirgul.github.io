@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özlem Irmak Birgül | Çevirmen & Mütercim Tercüman</title>
+    <!-- Google Fonts: Modern ve şık yazı tipleri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome: İkon kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. RENK PALETİ VE GENEL DEĞİŞKENLER (CSS VARIABLES)
+           Buradan sitenin ana renklerini (pembe, siyah, beyaz) kolayca değiştirebilirsiniz.
+           ========================================================================== */
+        :root {
+            /* Renkler: Pembe, Siyah ve Beyaz Teması */
+            --bg-color: #0b0c10;          /* Ana koyu siyah arka plan */
+            --card-bg: #14161d;           /* Kart ve kutuların koyu arka planı */
+            --card-border: #232733;       /* Kart sınır çizgisi */
+            --text-primary: #ffffff;      /* Ana beyaz metin */
+            --text-secondary: #9ea4b5;    /* Gri tonlu ikincil metin */
+            --pink-primary: #ff4d8d;      /* Canlı pembe vurgu rengi */
+            --pink-hover: #ff2a75;        /* Buton üzerine gelince pembe tonu */
+            --pink-soft: rgba(255, 77, 141, 0.12); /* Hafif şeffaf pembe zemin */
+            --pink-glow: rgba(255, 77, 141, 0.35); /* Pembe parlama efekti */
+            --white: #ffffff;
+            
+            /* Tipografi & Düzen */
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            --container-width: 1100px;
+        }
+
+        /* Sıfırlama ve Temel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.65;
+            overflow-x: hidden;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 77, 141, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(255, 77, 141, 0.06) 0%, transparent 35%);
+            background-attachment: fixed;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 90px 0;
+            position: relative;
+        }
+
+        /* ==========================================================================
+           2. BAŞLIK VE ETİKET TASARIMLARI
+           ========================================================================== */
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+            border: 1px solid rgba(255, 77, 141, 0.25);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--pink-primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* ==========================================================================
+           3. NAVBAR (ÜST MENÜ VE TR-EN DİL DEĞİŞTİRİCİ)
+           ========================================================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            background: rgba(11, 12, 16, 0.82);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 75px;
+        }
+
+        .brand-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+        }
+
+        .brand-logo .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--pink-primary);
+            display: inline-block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-link {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--white);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--pink-primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* TR-EN Dil Butonu */
+        .lang-switch-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 77, 141, 0.4);
+            color: var(--white);
+            padding: 7px 14px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .lang-switch-btn:hover {
+            background: var(--pink-soft);
+            border-color: var(--pink-primary);
+            transform: translateY(-1px);
+        }
+
+        .lang-switch-btn .active-lang {
+            color: var(--pink-primary);
+        }
+
+        /* Mobil Menü Butonu */
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           4. HERO BÖLÜMÜ (GİRİŞ & KELİME ANİMASYONU)
+           ========================================================================== */
+        .hero-section {
+            padding-top: 155px;
+            padding-bottom: 95px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Arka plan alfabe akışı dekoru (Çevirmen dokunuşu) */
+        .alphabet-stream {
+            position: absolute;
+            top: 20%;
+            right: -5%;
+            font-family: var(--font-serif);
+            font-size: 7rem;
+            font-weight: 700;
+            color: rgba(255, 77, 141, 0.035);
+            user-select: none;
+            pointer-events: none;
+            line-height: 1.1;
+            transform: rotate(6deg);
+            z-index: 0;
+            letter-spacing: 12px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 77, 141, 0.1);
+            border: 1px solid rgba(255, 77, 141, 0.3);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            color: var(--pink-primary);
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge i {
+            font-size: 0.85rem;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+
+        .hero-title {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #ffffff 40%, var(--pink-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Çevirmen Dokunuşu: Dinamik Diller Arası Selamlaşma Animasyonu */
+        .polyglot-greeting {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--pink-primary);
+            margin-bottom: 22px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 16px;
+            border-radius: var(--radius-md);
+            border: 1px dashed rgba(255, 77, 141, 0.35);
+        }
+
+        .dynamic-word {
+            display: inline-block;
+            min-width: 140px;
+            font-weight: 700;
+            color: var(--white);
+            border-bottom: 2px solid var(--pink-primary);
+            transition: all 0.4s ease;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .hero-btns {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 26px;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-pink {
+            background: var(--pink-primary);
+            color: var(--white);
+            box-shadow: 0 4px 18px var(--pink-glow);
+        }
+
+        .btn-pink:hover {
+            background: var(--pink-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 77, 141, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--pink-primary);
+            color: var(--pink-primary);
+            background: var(--pink-soft);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Sağ Taraf: Çevirmen Kartı Görseli */
+        .hero-visual {
+            position: relative;
+        }
+
+        .translator-card-showcase {
+            background: linear-gradient(145deg, #161822 0%, #11131a 100%);
+            border: 1px solid rgba(255, 77, 141, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .translator-card-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink-primary), #ffffff, var(--pink-primary));
+        }
+
+        .card-profile-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .avatar-initials {
+            width: 58px;
+            height: 58px;
+            background: linear-gradient(135deg, var(--pink-primary), #881d45);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--white);
+            box-shadow: 0 4px 15px var(--pink-glow);
+        }
+
+        .card-profile-info h3 {
+            font-size: 1.15rem;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .card-profile-info p {
+            font-size: 0.85rem;
+            color: var(--pink-primary);
+            font-weight: 500;
+        }
+
+        /* Canlı Dil Çeviri Simülatörü Kartı */
+        .translation-sim {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .sim-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sim-text {
+            font-size: 0.95rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .sim-exchange {
+            text-align: center;
+            margin: 6px 0;
+            color: var(--pink-primary);
+            font-size: 0.9rem;
+        }
+
+        .floating-flag-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .flag-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--white);
+        }
+
+        .flag-pill.active {
+            border-color: var(--pink-primary);
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+        }
+
+        /* ==========================================================================
+           5. ÇALIŞMA DİLLERİ BÖLÜMÜ (BAYRAKLI & ETKİLEŞİMLİ)
+           ========================================================================== */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .lang-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .lang-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--pink-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 77, 141, 0.15);
+        }
+
+        .lang-flag {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            display: inline-block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+
+        .lang-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .lang-level {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+            margin-bottom: 16px;
+        }
+
+        .lang-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .lang-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--pink-primary), #ff75a0);
+            border-radius: var(--radius-full);
+        }
+
+        /* ==========================================================================
+           6. HAKKIMDA VE EĞİTİM BÖLÜMÜ
+           ========================================================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: stretch;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .about-card:hover {
+            border-color: rgba(255, 77, 141, 0.35);
+        }
+
+        .about-icon-header {
+            width: 52px;
+            height: 52px;
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 22px;
+        }
+
+        .about-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--white);
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.75;
+        }
+
+        .quote-box {
+            margin-top: 20px;
+            padding: 16px 20px;
+            background: rgba(255, 77, 141, 0.06);
+            border-left: 3px solid var(--pink-primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            color: #f1f2f6;
+            font-size: 0.95rem;
+        }
+
+        .education-list {
+            margin-top: 15px;
+        }
+
+        .edu-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 18px;
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--pink-primary);
+        }
+
+        .edu-item h4 {
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .edu-item .sub {
+            color: var(--pink-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .edu-item .detail {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+        }
+
+        /* ==========================================================================
+           7. BECERİLERİM (SKILLS)
+           ========================================================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 28px 22px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--pink-primary);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), 0 0 12px rgba(255, 77, 141, 0.2);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px auto;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--pink-primary);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover .skill-icon {
+            background: var(--pink-primary);
+            color: var(--white);
+            transform: scale(1.08);
+        }
+
+        .skill-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .skill-category {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           8. DENEYİM (EXPERIENCE)
+           ========================================================================== */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--pink-primary) 0%, rgba(255, 77, 141, 0.1) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 12px;
+            top: 18px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 3px solid var(--pink-primary);
+            box-shadow: 0 0 10px var(--pink-primary);
+        }
+
+        .timeline-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .timeline-card:hover {
+            border-color: rgba(255, 77, 141, 0.4);
+            transform: translateX(4px);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .timeline-org {
+            font-size: 1rem;
+            color: var(--pink-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .timeline-badge {
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+            border: 1px solid rgba(255, 77, 141, 0.25);
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-top: 10px;
+        }
+
+        .placeholder-note {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 77, 141, 0.4);
+            color: #ff94ba;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        /* ==========================================================================
+           9. İLGİ ALANLARI VE HOBİLER (HOBBIES)
+           ========================================================================== */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .hobby-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 34px 24px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--pink-primary);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 14px rgba(255, 77, 141, 0.15);
+        }
+
+        .hobby-icon-wrap {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 77, 141, 0.2);
+        }
+
+        .hobby-card:hover .hobby-icon-wrap {
+            background: var(--pink-primary);
+            color: var(--white);
+            transform: rotate(10deg) scale(1.08);
+        }
+
+        .hobby-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .hobby-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           10. İLETİŞİM BÖLÜMÜ (CONTACT)
+           ========================================================================== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 77, 141, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-info-col h3 {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .contact-info-col p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--pink-soft);
+            color: var(--pink-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 77, 141, 0.25);
+        }
+
+        .contact-details h5 {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .contact-details a, .contact-details span {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.98rem;
+        }
+
+        .contact-details a:hover {
+            color: var(--pink-primary);
+        }
+
+        /* İletişim Formu */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #d1d5db;
+        }
+
+        .form-control {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 10px rgba(255, 77, 141, 0.25);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        /* ==========================================================================
+           11. FOOTER (ALT BİLGİ)
+           ========================================================================== */
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 35px 0;
+            background: #08090c;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-logo span {
+            color: var(--pink-primary);
+        }
+
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+        }
+
+        /* ==========================================================================
+           12. MOBİL UYUMLULUK (RESPONSIVE TASARIM)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-visual {
+                max-width: 520px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .languages-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 75px);
+                background: #0d0f15;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 26px;
+                transition: var(--transition);
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-btns .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         ÜST MENÜ (NAVBAR) VE DİL DEĞİŞTİRME BUTONU
+         ========================================================================== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Site Sahibi İsmi / Logo -->
+                <a href="#home" class="brand-logo">
+                    <span>Özlem Irmak Birgül</span>
+                    <span class="dot"></span>
+                </a>
+
+                <!-- Gezinme Menüsü -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#about" class="nav-link" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
+                    <li><a href="#languages" class="nav-link" data-tr="Diller" data-en="Languages">Diller</a></li>
+                    <li><a href="#skills" class="nav-link" data-tr="Becerilerim" data-en="Skills">Becerilerim</a></li>
+                    <li><a href="#experience" class="nav-link" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
+                    <li><a href="#hobbies" class="nav-link" data-tr="Hobilerim" data-en="Hobbies">Hobilerim</a></li>
+                    <li><a href="#contact" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <!-- Türkçe / İngilizce Geçiş Düğmesi -->
+                    <button class="lang-switch-btn" id="langToggleBtn" title="Dili Değiştir / Switch Language">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="langLabel">TR</span> | <span id="langAltLabel" style="opacity: 0.6;">EN</span>
+                    </button>
+
+                    <!-- Mobil Menü Aç/Kapa Butonu -->
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Menüyü Aç">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         BÖLÜM 1: GİRİŞ (HERO) VE ÇEVİRMEN DOKUNUŞU ANİMASYONU
+         ========================================================================== -->
+    <section class="hero-section" id="home">
+        <!-- Arka plan alfabe akışı dekoru -->
+        <div class="alphabet-stream">
+            TR • EN • ES • α • Ω • ñ • 語
+        </div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Sol Kolon: Başlık, Tanıtım ve Çağrı Butonları -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span data-tr="İngilizce Mütercim ve Tercümanlık (4. Sınıf)" data-en="English Translation & Interpreting (Senior)">
+                            İngilizce Mütercim ve Tercümanlık (4. Sınıf)
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="highlight">Özlem Irmak Birgül</span>
+                    </h1>
+
+                    <!-- Özel Çevirmen Dokunuşu: Dinamik Diller Arası Selamlaşma -->
+                    <div class="polyglot-greeting">
+                        <span>💬</span>
+                        <span class="dynamic-word" id="dynamicGreeting">Merhaba!</span>
+                        <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: normal;" data-tr="(Köprü Oluşturan Diller)" data-en="(Bridging Languages)">
+                            (Köprü Oluşturan Diller)
+                        </span>
+                    </div>
+
+                    <!-- Kendini anlatan cümle (Kullanıcı tarafından verildi) -->
+                    <p class="hero-desc" data-tr="Konferans çevirmenliği ve yapay zekâ araçlarıyla ilgilenen bir çevirmen adayıyım." data-en="I am a prospective interpreter interested in conference interpreting and artificial intelligence tools.">
+                        Konferans çevirmenliği ve yapay zekâ araçlarıyla ilgilenen bir çevirmen adayıyım.
+                    </p>
+
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-pink">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span data-tr="İletişime Geç" data-en="Get in Touch">İletişime Geç</span>
+                        </a>
+                        <a href="#about" class="btn btn-outline">
+                            <i class="fa-regular fa-user"></i>
+                            <span data-tr="Hakkımda Daha Fazla" data-en="About Me">Hakkımda Daha Fazla</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sağ Kolon: Çevirmen Kartı & Canlı Simülasyon Görseli -->
+                <div class="hero-visual">
+                    <div class="translator-card-showcase">
+                        <div class="card-profile-header">
+                            <div class="avatar-initials">ÖB</div>
+                            <div class="card-profile-info">
+                                <h3>Özlem Irmak Birgül</h3>
+                                <p data-tr="İstanbul Yeni Yüzyıl Üniversitesi" data-en="Istanbul Yeni Yuzyil University">
+                                    İstanbul Yeni Yüzyıl Üniversitesi
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Çeviri Etkileşimi Kartı -->
+                        <div class="translation-sim">
+                            <div class="sim-header">
+                                <span data-tr="Kaynak Dil: Türkçe" data-en="Source: Turkish">Kaynak Dil: Türkçe</span>
+                                <span>🇹🇷 TR</span>
+                            </div>
+                            <div class="sim-text" data-tr="« Diller arasında köprü oluşturmak »" data-en="« Diller arasında köprü oluşturmak »">
+                                « Diller arasında köprü oluşturmak »
+                            </div>
+                            
+                            <div class="sim-exchange">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
+
+                            <div class="sim-header">
+                                <span data-tr="Hedef Dil: İngilizce" data-en="Target: English">Hedef Dil: İngilizce</span>
+                                <span>🇬🇧 EN</span>
+                            </div>
+                            <div class="sim-text" style="color: var(--pink-primary);" data-tr="« Building bridges between languages »" data-en="« Building bridges between languages »">
+                                « Building bridges between languages »
+                            </div>
+                        </div>
+
+                        <!-- Çalışma Dilleri Rozetleri -->
+                        <div class="floating-flag-tags">
+                            <div class="flag-pill active">
+                                <span>🇹🇷</span> <span>Türkçe</span>
+                            </div>
+                            <div class="flag-pill active">
+                                <span>🇬🇧</span> <span>English</span>
+                            </div>
+                            <div class="flag-pill active">
+                                <span>🇪🇸</span> <span>Español</span>
+                            </div>
+                            <div class="flag-pill">
+                                <span>🤖</span> <span>AI & CAT Tools</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 2: ÇALIŞMA DİLLERİM (BAYRAKLAR VE SEVİYELER)
+         ========================================================================== -->
+    <section class="section" id="languages" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-language"></i>
+                    <span data-tr="Dil Yetkinlikleri" data-en="Language Skills">Dil Yetkinlikleri</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-tr="Çalışma" data-en="Working">Çalışma</span> <span><span data-tr="Dillerim" data-en="Languages">Dillerim</span></span>
+                </h2>
+                <p class="section-subtitle" data-tr="Kültürler ve uluslararası toplantılar arası akıcı iletişim" data-en="Fluent communication across cultures and international meetings">
+                    Kültürler ve uluslararası toplantılar arası akıcı iletişim
+                </p>
+            </div>
+
+            <div class="languages-grid">
+                <!-- Türkçe -->
+                <div class="lang-card">
+                    <div class="lang-flag">🇹🇷</div>
+                    <h3 class="lang-name" data-tr="Türkçe" data-en="Turkish">Türkçe</h3>
+                    <div class="lang-level" data-tr="Anadil" data-en="Native">Anadil</div>
+                    <div class="lang-bar">
+                        <div class="lang-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- İngilizce -->
+                <div class="lang-card">
+                    <div class="lang-flag">🇬🇧</div>
+                    <h3 class="lang-name" data-tr="İngilizce" data-en="English">İngilizce</h3>
+                    <div class="lang-level" data-tr="İleri Düzey" data-en="Advanced">İleri Düzey</div>
+                    <div class="lang-bar">
+                        <div class="lang-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <!-- İspanyolca -->
+                <div class="lang-card">
+                    <div class="lang-flag">🇪🇸</div>
+                    <h3 class="lang-name" data-tr="İspanyolca" data-en="Spanish">İspanyolca</h3>
+                    <div class="lang-level" data-tr="Başlangıç Seviyesi" data-en="Beginner">Başlangıç Seviyesi</div>
+                    <div class="lang-bar">
+                        <div class="lang-progress" style="width: 35%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 3: HAKKIMDA & EĞİTİM
+         ========================================================================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span data-tr="Profilim" data-en="My Profile">Profilim</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-tr="Benim" data-en="About">Benim</span> <span><span data-tr="Hakkımda" data-en="Me">Hakkımda</span></span>
+                </h2>
+                <p class="section-subtitle" data-tr="Eğitimim, hedeflerim ve mesleki motivasyonum" data-en="My education, career goals, and professional motivation">
+                    Eğitimim, hedeflerim ve mesleki motivasyonum
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <!-- Hakkımda Mesajı -->
+                <div class="about-card">
+                    <div>
+                        <div class="about-icon-header">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <h3 data-tr="Neden Çevirmenlik?" data-en="Why Translation & Interpreting?">Neden Çevirmenlik?</h3>
+                        <p data-tr="Farklı diller ve kültürler arasında köprü kurabilmeyi, fikirleri ve duyguları eksiksiz aktarabilmeyi tutkuyla seviyorum." data-en="I have a deep passion for building bridges between different languages and cultures, conveying ideas and nuances accurately.">
+                            Farklı diller ve kültürler arasında köprü kurabilmeyi, fikirleri ve duyguları eksiksiz aktarabilmeyi tutkuyla seviyorum.
+                        </p>
+
+                        <!-- Kullanıcının verdiği orijinal vizyon metni -->
+                        <div class="quote-box">
+                            <span data-tr="« Bu bölümü seçtim çünkü farklı diller arasında köprü oluşturabilmeyi seviyorum; uluslararası toplantılara katılan başarılı bir çevirmen olmak istiyorum. »" data-en="« I chose this department because I love building bridges between different languages; I aspire to become a successful interpreter participating in international conferences. »">
+                                « Bu bölümü seçtim çünkü farklı diller arasında köprü oluşturabilmeyi seviyorum; uluslararası toplantılara katılan başarılı bir çevirmen olmak istiyorum. »
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eğitim Bilgisi -->
+                <div class="about-card">
+                    <div>
+                        <div class="about-icon-header">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 data-tr="Eğitim Bilgilerim" data-en="Education">Eğitim Bilgilerim</h3>
+                        
+                        <div class="education-list">
+                            <div class="edu-item">
+                                <h4 data-tr="İstanbul Yeni Yüzyıl Üniversitesi" data-en="Istanbul Yeni Yuzyil University">İstanbul Yeni Yüzyıl Üniversitesi</h4>
+                                <div class="sub" data-tr="İngilizce Mütercim ve Tercümanlık" data-en="English Translation and Interpreting">İngilizce Mütercim ve Tercümanlık</div>
+                                <div class="detail">
+                                    <span data-tr="4. Sınıf Öğrencisi (Lisans)" data-en="4th Year Student (Undergraduate)">4. Sınıf Öğrencisi (Lisans)</span>
+                                </div>
+                            </div>
+
+                            <!-- Ek eğitim/sertifika eklemek isterseniz bu alanı kullanabilirsiniz -->
+                            <div class="edu-item" style="opacity: 0.85;">
+                                <h4 data-tr="Sertifikalar / Ek Eğitimler" data-en="Certifications / Extra Courses">Sertifikalar / Ek Eğitimler</h4>
+                                <div class="detail">
+                                    <span class="placeholder-note" data-tr="[buraya ekle: sertifika veya ek eğitim]" data-en="[add here: certificates or courses]">[buraya ekle: sertifika veya ek eğitim]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 4: BECERİLERİM (SKILLS)
+         ========================================================================== -->
+    <section class="section" id="skills" style="background: rgba(255, 255, 255, 0.015);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-toolbox"></i>
+                    <span data-tr="Yetkinlikler" data-en="Competencies">Yetkinlikler</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-tr="Teknik & Mesleki" data-en="Technical & Professional">Teknik & Mesleki</span> <span><span data-tr="Becerilerim" data-en="Skills">Becerilerim</span></span>
+                </h2>
+                <p class="section-subtitle" data-tr="Çeviri teknolojileri ve içerik üretim araçları" data-en="Translation technologies and content creation tools">
+                    Çeviri teknolojileri ve içerik üretim araçları
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- 1. Trados -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="skill-title">Trados</h3>
+                    <p class="skill-category" data-tr="CAT Aracı / Bilgisayar Destekli Çeviri" data-en="CAT Tool / Computer Assisted Translation">
+                        CAT Aracı / Bilgisayar Destekli Çeviri
+                    </p>
+                </div>
+
+                <!-- 2. Altyazı Çevirisi -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fa-solid fa-closed-captioning"></i>
+                    </div>
+                    <h3 class="skill-title" data-tr="Altyazı Çevirisi" data-en="Subtitling">Altyazı Çevirisi</h3>
+                    <p class="skill-category" data-tr="Görsel-İşitsel Çeviri (AVT)" data-en="Audiovisual Translation (AVT)">
+                        Görsel-İşitsel Çeviri (AVT)
+                    </p>
+                </div>
+
+                <!-- 3. Terminoloji -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <h3 class="skill-title" data-tr="Terminoloji" data-en="Terminology">Terminoloji</h3>
+                    <p class="skill-category" data-tr="Terim Yönetimi & Sözlükçülük" data-en="Terminology Management & Lexicography">
+                        Terim Yönetimi & Sözlükçülük
+                    </p>
+                </div>
+
+                <!-- 4. Canva -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="skill-title">Canva</h3>
+                    <p class="skill-category" data-tr="Görsel Tasarım & Sunum" data-en="Visual Design & Presentations">
+                        Görsel Tasarım & Sunum
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 5: DENEYİM (EXPERIENCE)
+         ========================================================================== -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span data-tr="Kariyer Adımları" data-en="Career Steps">Kariyer Adımları</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-tr="İş & Staj" data-en="Work & Internship">İş & Staj</span> <span><span data-tr="Deneyimim" data-en="Experience">Deneyimim</span></span>
+                </h2>
+                <p class="section-subtitle" data-tr="Kurumsal alanda edindiğim pratik tecrübeler" data-en="Practical experience gained in institutional environments">
+                    Kurumsal alanda edindiğim pratik tecrübeler
+                </p>
+            </div>
+
+            <div class="timeline">
+                <!-- İBB Staj Deneyimi -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title" data-tr="Stajyer Çevirmen" data-en="Translator Intern">Stajyer Çevirmen</h3>
+                                <div class="timeline-org">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span data-tr="İstanbul Büyükşehir Belediyesi" data-en="Istanbul Metropolitan Municipality">İstanbul Büyükşehir Belediyesi</span>
+                                </div>
+                            </div>
+                            <span class="timeline-badge" data-tr="Staj Deneyimi" data-en="Internship">Staj Deneyimi</span>
+                        </div>
+                        
+                        <p class="timeline-desc" data-tr="İstanbul Büyükşehir Belediyesi bünyesinde stajyer çevirmen olarak görev aldım." data-en="Served as an intern translator at Istanbul Metropolitan Municipality.">
+                            İstanbul Büyükşehir Belediyesi bünyesinde stajyer çevirmen olarak görev aldım.
+                        </p>
+
+                        <!-- Kullanıcı ileride staj tarihini veya yapılan projeleri ekleyebilsin diye placeholder -->
+                        <div style="margin-top: 12px;">
+                            <span class="placeholder-note" data-tr="[buraya ekle: staj tarih aralığı ve üstlenilen görev detayları]" data-en="[add here: internship dates and task details]">
+                                [buraya ekle: staj tarih aralığı ve üstlenilen görev detayları]
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İleride eklenebilecek yeni deneyimler için hazır taslak -->
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: rgba(255, 255, 255, 0.3); box-shadow: none;"></div>
+                    <div class="timeline-card" style="border-style: dashed; opacity: 0.85;">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title" data-tr="Gelecek Deneyimler & Projeler" data-en="Future Experience & Projects">Gelecek Deneyimler & Projeler</h3>
+                                <div class="timeline-org">
+                                    <i class="fa-regular fa-folder-open"></i>
+                                    <span class="placeholder-note" data-tr="[buraya ekle: yeni kurum / serbest çeviri projesi]" data-en="[add here: new company / freelance project]">[buraya ekle: yeni kurum / serbest çeviri projesi]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 6: İLGİ ALANLARI VE HOBİLER (HOBBIES)
+         ========================================================================== -->
+    <section class="section" id="hobbies" style="background: rgba(255, 255, 255, 0.015);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-heart"></i>
+                    <span data-tr="Kişisel İlgi Alanları" data-en="Personal Interests">Kişisel İlgi Alanları</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-tr="İlgi Alanlarım &" data-en="Interests &">İlgi Alanlarım &</span> <span><span data-tr="Hobilerim" data-en="Hobbies">Hobilerim</span></span>
+                </h2>
+                <p class="section-subtitle" data-tr="Çevirmenlik dışındaki dünyam, keyif aldığım uğraşlar" data-en="My world beyond translation, activities that inspire me">
+                    Çevirmenlik dışındaki dünyam, keyif aldığım uğraşlar
+                </p>
+            </div>
+
+            <div class="hobbies-grid">
+                <!-- Sinema -->
+                <div class="hobby-card">
+                    <div class="hobby-icon-wrap">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3 class="hobby-title" data-tr="Sinema" data-en="Cinema">Sinema</h3>
+                    <p class="hobby-desc" data-tr="Farklı kültürlerin hikâyelerini keşfetmek ve görsel-işitsel anlatımın derinliğini deneyimlemek." data-en="Exploring stories across diverse cultures and experiencing the depth of audiovisual storytelling.">
+                        Farklı kültürlerin hikâyelerini keşfetmek ve görsel-işitsel anlatımın derinliğini deneyimlemek.
+                    </p>
+                </div>
+
+                <!-- Tenis -->
+                <div class="hobby-card">
+                    <div class="hobby-icon-wrap">
+                        <i class="fa-solid fa-baseball-bat-ball"></i>
+                    </div>
+                    <h3 class="hobby-title" data-tr="Tenis" data-en="Tennis">Tenis</h3>
+                    <p class="hobby-desc" data-tr="Odaklanma, refleks ve disiplin kazandıran dinamik bir spor." data-en="A dynamic sport cultivating focus, quick reflexes, and mental agility.">
+                        Odaklanma, refleks ve disiplin kazandıran dinamik bir spor.
+                    </p>
+                </div>
+
+                <!-- Seyahat -->
+                <div class="hobby-card">
+                    <div class="hobby-icon-wrap">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <h3 class="hobby-title" data-tr="Seyahat" data-en="Travel">Seyahat</h3>
+                    <p class="hobby-desc" data-tr="Yeni şehirler görmek, farklı dilleri yerinde duymak ve küresel bakış açısı kazanmak." data-en="Discovering new cities, hearing languages in their native environments, and embracing global perspectives.">
+                        Yeni şehirler görmek, farklı dilleri yerinde duymak ve küresel bakış açısı kazanmak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 7: İLETİŞİM (CONTACT)
+         ========================================================================== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span data-tr="Bağlantı Kurun" data-en="Get in Touch">Bağlantı Kurun</span>
+                </div>
+                <h2 class="section-title">
+                    <span data-tr="Benimle" data-en="Contact">Benimle</span> <span><span data-tr="İletişime Geçin" data-en="Me">İletişime Geçin</span></span>
+                </h2>
+                <p class="section-subtitle" data-tr="Çeviri projeleri, iş birlikleri ve staj fırsatları için" data-en="For translation projects, collaborations, and opportunities">
+                    Çeviri projeleri, iş birlikleri ve staj fırsatları için
+                </p>
+            </div>
+
+            <div class="contact-container">
+                <!-- Sol Taraf: İletişim Bilgileri -->
+                <div class="contact-info-col">
+                    <h3 data-tr="Birlikte Çalışalım" data-en="Let's Work Together">Birlikte Çalışalım</h3>
+                    <p data-tr="Konferans çevirmenliği, yazılı tercüme ve görsel-işitsel projeleriniz için bana dilediğiniz zaman ulaşabilirsiniz." data-en="Feel free to reach out anytime for conference interpreting, written translation, or audiovisual translation projects.">
+                        Konferans çevirmenliği, yazılı tercüme ve görsel-işitsel projeleriniz için bana dilediğiniz zaman ulaşabilirsiniz.
+                    </p>
+
+                    <!-- E-posta -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-at"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5 data-tr="E-posta Adresi" data-en="Email Address">E-posta Adresi</h5>
+                            <a href="mailto:birgulozlemirmak@gmail.com">birgulozlemirmak@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Telefon (Kullanıcı vermediği için placeholder) -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5 data-tr="Telefon" data-en="Phone">Telefon</h5>
+                            <span class="placeholder-note" data-tr="[buraya ekle: telefon numarası]" data-en="[add here: phone number]">[buraya ekle: telefon numarası]</span>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn / Sosyal Ağlar (Placeholder) -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5 data-tr="LinkedIn" data-en="LinkedIn">LinkedIn</h5>
+                            <span class="placeholder-note" data-tr="[buraya ekle: LinkedIn profil linki]" data-en="[add here: LinkedIn profile link]">[buraya ekle: LinkedIn profil linki]</span>
+                        </div>
+                    </div>
+
+                    <!-- Konum (İstanbul) -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5 data-tr="Konum" data-en="Location">Konum</h5>
+                            <span>İstanbul, Türkiye</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ Taraf: Hızlı Mesaj Gönderme Formu -->
+                <div class="contact-form-col">
+                    <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="formName" data-tr="Adınız Soyadınız" data-en="Your Name">Adınız Soyadınız</label>
+                            <input type="text" id="formName" class="form-control" placeholder="Adınız..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formEmail" data-tr="E-posta Adresiniz" data-en="Your Email">E-posta Adresiniz</label>
+                            <input type="email" id="formEmail" class="form-control" placeholder="ornek@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formSubject" data-tr="Konu" data-en="Subject">Konu</label>
+                            <input type="text" id="formSubject" class="form-control" placeholder="Çeviri / İş birliği..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formMessage" data-tr="Mesajınız" data-en="Message">Mesajınız</label>
+                            <textarea id="formMessage" class="form-control" placeholder="Mesajınızı buraya yazınız..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-pink" style="width: 100%; border: none;">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span data-tr="Mesajı Gönder" data-en="Send Message">Mesajı Gönder</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOOTER (ALT BİLGİ ALANI)
+         ========================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    Özlem Irmak Birgül <span>•</span> <span style="font-size: 0.9rem;" data-tr="Mütercim & Tercüman" data-en="Translator & Interpreter">Mütercim & Tercüman</span>
+                </div>
+                <div class="footer-copy">
+                    &copy; <span id="currentYear"></span> Özlem Irmak Birgül. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         JAVASCRIPT KODLARI
+         1. TR-EN Çift Dil Geçişi
+         2. Dinamik Çok Dilli Selamlaşma Animasyonu (Özel Çevirmen Dokunuşu)
+         3. Mobil Menü Aç/Kapa
+         4. İletişim Formu İşleyicisi
+         ========================================================================== -->
+    <script>
+        // --------------------------------------------------------------------------
+        // A. OTOMATİK YIL GÜNCELLEMESİ
+        // --------------------------------------------------------------------------
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --------------------------------------------------------------------------
+        // B. MOBİL MENÜ TETİKLEYİCİSİ
+        // --------------------------------------------------------------------------
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Menü linklerine tıklanınca mobilde menüyü kapat
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // --------------------------------------------------------------------------
+        // C. ÇEVİRMEN DOKUNUŞU: DİNAMİK SELAMLAŞMA VE ALFABE DÖNGÜSÜ
+        // --------------------------------------------------------------------------
+        const greetings = [
+            "Merhaba!",       // Türkçe
+            "Hello!",         // İngilizce
+            "¡Hola!",         // İspanyolca
+            "Bonjour!",       // Fransızca
+            "Ciao!",          // İtalyanca
+            "Willkommen!",    // Almanca
+            "Olá!"            // Portekizce
+        ];
+
+        let greetingIndex = 0;
+        const greetingElement = document.getElementById('dynamicGreeting');
+
+        setInterval(() => {
+            greetingIndex = (greetingIndex + 1) % greetings.length;
+            greetingElement.style.opacity = '0';
+            greetingElement.style.transform = 'translateY(6px)';
+            
+            setTimeout(() => {
+                greetingElement.textContent = greetings[greetingIndex];
+                greetingElement.style.opacity = '1';
+                greetingElement.style.transform = 'translateY(0)';
+            }, 300);
+        }, 2200);
+
+        // --------------------------------------------------------------------------
+        // D. TÜRKÇE - İNGİLİZCE (TR - EN) DİL GEÇİŞ SİSTEMİ
+        // data-tr ve data-en etiketine sahip tüm metinleri otomatik günceller
+        // --------------------------------------------------------------------------
+        let currentLanguage = 'tr';
+        const langToggleBtn = document.getElementById('langToggleBtn');
+        const langLabel = document.getElementById('langLabel');
+        const langAltLabel = document.getElementById('langAltLabel');
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            const elements = document.querySelectorAll('[data-tr]');
+
+            elements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    // Placeholder'ları da koruyarak metni güncelle
+                    el.textContent = text;
+                }
+            });
+
+            // Form placeholder'larını güncelle
+            const formName = document.getElementById('formName');
+            const formEmail = document.getElementById('formEmail');
+            const formSubject = document.getElementById('formSubject');
+            const formMessage = document.getElementById('formMessage');
+
+            if (lang === 'en') {
+                if (formName) formName.placeholder = 'Your name...';
+                if (formEmail) formEmail.placeholder = 'example@email.com';
+                if (formSubject) formSubject.placeholder = 'Translation / Collaboration...';
+                if (formMessage) formMessage.placeholder = 'Write your message here...';
+                langLabel.textContent = 'EN';
+                langLabel.classList.add('active-lang');
+                langAltLabel.textContent = 'TR';
+            } else {
+                if (formName) formName.placeholder = 'Adınız...';
+                if (formEmail) formEmail.placeholder = 'ornek@email.com';
+                if (formSubject) formSubject.placeholder = 'Çeviri / İş birliği...';
+                if (formMessage) formMessage.placeholder = 'Mesajınızı buraya yazınız...';
+                langLabel.textContent = 'TR';
+                langLabel.classList.add('active-lang');
+                langAltLabel.textContent = 'EN';
+            }
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            const nextLang = currentLanguage === 'tr' ? 'en' : 'tr';
+            setLanguage(nextLang);
+        });
+
+        // --------------------------------------------------------------------------
+        // E. İLETİŞİM FORMU TIKLANDIĞINDA E-POSTA BAĞLANTISINI TETİKLEME
+        // --------------------------------------------------------------------------
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const subject = document.getElementById('formSubject').value;
+            const message = document.getElementById('formMessage').value;
+
+            // Kullanıcının e-posta istemcisini doğrudan açmak için mailto oluşturur
+            const mailtoUrl = `mailto:birgulozlemirmak@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Gönderen: " + name + " (" + email + ")\n\n" + message)}`;
+            
+            const alertMsg = currentLanguage === 'tr' 
+                ? 'Mesajınız hazırlanıyor, e-posta istemciniz açılacak.' 
+                : 'Preparing your message, opening your email client.';
+            
+            alert(alertMsg);
+            window.location.href = mailtoUrl;
+        }
+    </script>
+</body>
+</html>
